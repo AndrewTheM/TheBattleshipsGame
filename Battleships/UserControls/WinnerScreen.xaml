@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Battleships.WinnerScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Battleships"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="WinnerAppearance">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnAgain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource WinnerAppearance}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock x:Name="textBlock" Style="{StaticResource styleCommonText}" FontSize="48" Margin="20">
+            <Run Text="{Binding Path=Nickname}"/><Run Text="{Loc WinText}"/>
+        </TextBlock>
+        <Button Name="btnAgain" Content="{Loc PlayAgainButton}" FontSize="24" Width="200"/>
+        <Button Name="btnMenu" Content="{Loc MenuButton}" FontSize="24" Width="200"/>
+    </StackPanel>
+</UserControl>

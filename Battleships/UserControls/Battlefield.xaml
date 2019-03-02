@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Battleships.Battlefield"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Battleships"
+             mc:Ignorable="d" 
+             d:DesignHeight="330" d:DesignWidth="330">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource styleCommonText}">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF0111AA"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <TextBlock Text="A"/>
+            <TextBlock Text="B"/>
+            <TextBlock Text="C"/>
+            <TextBlock Text="D"/>
+            <TextBlock Text="E"/>
+            <TextBlock Text="F"/>
+            <TextBlock Text="G"/>
+            <TextBlock Text="H"/>
+            <TextBlock Text="I"/>
+            <TextBlock Text="J"/>
+        </StackPanel>
+        <UniformGrid Name="grid" Grid.Row="1" Grid.Column="1" Rows="10" Columns="10" Background="AliceBlue" Width="300" Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="1"/>
+            <TextBlock Text="2"/>
+            <TextBlock Text="3"/>
+            <TextBlock Text="4"/>
+            <TextBlock Text="5"/>
+            <TextBlock Text="6"/>
+            <TextBlock Text="7"/>
+            <TextBlock Text="8"/>
+            <TextBlock Text="9"/>
+            <TextBlock Text="10"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

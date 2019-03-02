@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Battleships.PlayerBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Battleships"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource styleCommonText}">
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Margin="0 0 0 20">
+            <TextBlock Text="{Loc PlayerText}"><Run Text="{Binding Path=Number}"/></TextBlock>
+            <TextBlock Text="{Binding Path=Nickname, UpdateSourceTrigger=PropertyChanged}" FontSize="30"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <local:Battlefield x:Name="fieldShips" VerticalAlignment="Center" Margin="20 0 0 0"/>
+            <local:Battlefield x:Name="fieldEnemies" VerticalAlignment="Center" Margin="40 0 30 0"/>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock TextAlignment="Center" Text="{Loc DamageText}"/>
+                <TextBlock TextAlignment="Center" FontSize="36" Text="{Binding Path=Damage, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button x:Name="btnConfirm" Content="{Loc ConfirmTurnButton}" Margin="0 20 0 0"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Loc YourBattlefieldText}" Margin="115 10 0 0"/>
+            <TextBlock Text="{Loc EnemyBattlefieldText}" Margin="175 10 0 0"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
